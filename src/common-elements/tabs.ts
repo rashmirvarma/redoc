@@ -17,22 +17,23 @@ export const Tabs = styled(ReactTabs)`
       display: inline-block;
 
       background-color: ${({ theme }) => theme.codeBlock.backgroundColor};
-      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+      // border-bottom: 1px solid rgba(0, 0, 0, 0.5);
       cursor: pointer;
       text-align: center;
       outline: none;
       color: ${({ theme }) => darken(theme.colors.tonalOffset, theme.rightPanel.textColor)};
       margin: 0
         ${({ theme }) => `${theme.spacing.unit}px ${theme.spacing.unit}px ${theme.spacing.unit}px`};
-      border: 1px solid ${({ theme }) => darken(0.05, theme.codeBlock.backgroundColor)};
+      // border: 1px solid ${({ theme }) => darken(0.05, theme.codeBlock.backgroundColor)};
       border-radius: 5px;
       min-width: 60px;
       font-size: 0.9em;
       font-weight: bold;
 
       &.react-tabs__tab--selected {
-        color: ${props => props.theme.colors.text.primary};
-        background: ${({ theme }) => theme.rightPanel.textColor};
+        // color: ${props => props.theme.colors.text.primary};
+        //  background: ${({ theme }) => theme.rightPanel.textColor};
+        background:transparent;
         &:focus {
           outline: auto;
         }
@@ -44,24 +45,25 @@ export const Tabs = styled(ReactTabs)`
       }
 
       &.tab-success {
-        color: ${props => props.theme.colors.responses.success.tabTextColor};
+        color: ${props => props.theme.colors.responses.success.color};
       }
 
       &.tab-redirect {
-        color: ${props => props.theme.colors.responses.redirect.tabTextColor};
+        color: ${props => props.theme.colors.responses.redirect.color};
       }
 
       &.tab-info {
-        color: ${props => props.theme.colors.responses.info.tabTextColor};
+        color: ${props => props.theme.colors.responses.info.color};
       }
 
       &.tab-error {
-        color: ${props => props.theme.colors.responses.error.tabTextColor};
+        color: ${props => props.theme.colors.responses.error.color};
       }
     }
   }
   > .react-tabs__tab-panel {
     background: ${({ theme }) => theme.codeBlock.backgroundColor};
+    // background: transparent;
     & > div,
     & > pre {
       padding: ${props => props.theme.spacing.unit * 4}px;
@@ -84,7 +86,9 @@ export const SmallTabs = styled(Tabs)`
       font-size: 13px;
       font-weight: normal;
       border-bottom: 1px dashed;
-      color: ${({ theme }) => darken(theme.colors.tonalOffset, theme.rightPanel.textColor)};
+      // color: ${({ theme }) => darken(theme.colors.tonalOffset, theme.rightPanel.textColor)};
+      color:white;
+
       border-radius: 0;
       background: none;
 
@@ -93,7 +97,8 @@ export const SmallTabs = styled(Tabs)`
       }
 
       &.react-tabs__tab--selected {
-        color: ${({ theme }) => theme.rightPanel.textColor};
+        // color: ${({ theme }) => theme.rightPanel.textColor};
+        color:white;
         background: none;
       }
     }
