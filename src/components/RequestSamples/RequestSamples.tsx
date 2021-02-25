@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react';
 import * as React from 'react';
-import { isPayloadSample, OperationModel, RedocNormalizedOptions } from '../../services';
-import { PayloadSamples } from '../PayloadSamples/PayloadSamples';
-import { SourceCodeWithCopy } from '../SourceCode/SourceCode';
+import { OperationModel, RedocNormalizedOptions } from '../../services';
+//import { PayloadSamples } from '../PayloadSamples/PayloadSamples';
+//import { SourceCodeWithCopy } from '../SourceCode/SourceCode';
 
-import { RightPanelHeader, Tab, TabList, TabPanel, Tabs } from '../../common-elements';
+import { RightPanelHeader, Tabs } from '../../common-elements';
 import { OptionsContext } from '../OptionsProvider';
 
 export interface RequestSamplesProps {
@@ -22,14 +22,14 @@ export class RequestSamples extends React.Component<RequestSamplesProps> {
     const samples = operation.codeSamples;
 
     const hasSamples = samples.length > 0;
-    const hideTabList = samples.length === 1 ? this.context.hideSingleRequestSampleTab : false;
+    //const hideTabList = samples.length === 1 ? this.context.hideSingleRequestSampleTab : false;
     return (
       (hasSamples && (
         <div>
           <RightPanelHeader> Request samples </RightPanelHeader>
 
           <Tabs defaultIndex={0}>
-            <TabList hidden={hideTabList}>
+            {/*<TabList hidden={hideTabList}>
               {samples.map(sample => (
                 <Tab key={sample.lang + '_' + (sample.label || '')}>
                   {sample.label !== undefined ? sample.label : sample.lang}
@@ -46,7 +46,7 @@ export class RequestSamples extends React.Component<RequestSamplesProps> {
                   <SourceCodeWithCopy lang={sample.lang} source={sample.source} />
                 )}
               </TabPanel>
-            ))}
+            ))}*/}
           </Tabs>
         </div>
       )) ||

@@ -6,8 +6,8 @@ import styled, { css, ResolvedThemeInterface } from '../../styled-components';
 
 export const OperationBadge = styled.span.attrs((props: { type: string }) => ({
   className: `operation-type ${props.type}`,
-}))<{ type: string }>`
-  width: 9ex;
+})) <{ type: string }>`
+  width: 32px;
   display: inline-block;
   height: ${props => props.theme.typography.code.fontSize};
   line-height: ${props => props.theme.typography.code.fontSize};
@@ -16,7 +16,7 @@ export const OperationBadge = styled.span.attrs((props: { type: string }) => ({
   background-repeat: no-repeat;
   background-position: 6px 4px;
   font-size: 7px;
-  font-family: Verdana, sans-serif; // web-safe
+  font-family: Arial; // web-safe
   color: white;
   text-transform: uppercase;
   text-align: center;
@@ -60,10 +60,6 @@ export const OperationBadge = styled.span.attrs((props: { type: string }) => ({
   &.head {
     background-color: ${props => props.theme.colors.http.head};
   }
-
-  &.hook {
-    background-color: ${props => props.theme.colors.primary.main};
-  }
 `;
 
 function menuItemActiveBg(depth, { theme }: { theme: ResolvedThemeInterface }): string {
@@ -79,6 +75,7 @@ function menuItemActiveBg(depth, { theme }: { theme: ResolvedThemeInterface }): 
 export const MenuItemUl = styled.ul<{ expanded: boolean }>`
   margin: 0;
   padding: 0;
+  // border: 0.1em solid ##067FA2;
 
   & & {
     font-size: 0.929em;
@@ -92,6 +89,7 @@ export const MenuItemLi = styled.li<{ depth: number }>`
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0;
+
   ${props => (props.depth === 0 ? 'margin-top: 15px' : '')};
 `;
 
@@ -108,7 +106,7 @@ export const menuItemDepth = {
     font-size: 0.929em;
     text-transform: ${({ theme }) => theme.sidebar.level1Items.textTransform};
     &:hover {
-      color: ${props => props.theme.sidebar.activeTextColor};
+      color: '${props => props.theme.sidebar.activeTextColor}';
     }
   `,
   2: css`
@@ -128,7 +126,7 @@ export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => ({
   className: classnames('-depth' + props.depth, {
     active: props.active,
   }),
-}))<MenuItemLabelType>`
+})) <MenuItemLabelType>`
   cursor: pointer;
   color: ${props =>
     props.active ? props.theme.sidebar.activeTextColor : props.theme.sidebar.textColor};

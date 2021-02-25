@@ -45,7 +45,9 @@ export const PrismDiv = styled.div`
   .token.prolog,
   .token.doctype,
   .token.cdata {
-    color: hsl(30, 20%, 50%);
+    // color: hsl(30, 20%, 50%);
+    color: grey;
+
   }
 
   .token.punctuation {
@@ -61,11 +63,13 @@ export const PrismDiv = styled.div`
   .token.number,
   .token.constant,
   .token.symbol {
-    color: #4a8bb3;
+    // color: #4a8bb3;
+    color: grey;
+
   }
 
   .token.boolean {
-    color: #e64441;
+    color: firebrick;
   }
 
   .token.selector,
@@ -74,34 +78,44 @@ export const PrismDiv = styled.div`
   .token.char,
   .token.builtin,
   .token.inserted {
-    color: #a0fbaa;
+    // color: #a0fbaa;
+    color:grey;
     & + a,
     & + a:visited {
-      color: #4ed2ba;
+      // color: #4ed2ba;
+      color: grey;
       text-decoration: underline;
     }
   }
 
   .token.property.string {
-    color: white;
+    // color: white;
+    color: grey;
+
   }
 
   .token.operator,
   .token.entity,
   .token.url,
   .token.variable {
-    color: hsl(40, 90%, 60%);
+    // color: hsl(40, 90%, 60%);
+    color: grey;
+
   }
 
   .token.atrule,
   .token.attr-value,
   .token.keyword {
-    color: hsl(350, 40%, 70%);
+    // color: hsl(350, 40%, 70%);
+    color: grey;
+
   }
 
   .token.regex,
   .token.important {
-    color: #e90;
+    // color: #e90;
+    color: grey;
+
   }
 
   .token.important,
