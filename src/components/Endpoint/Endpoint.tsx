@@ -36,7 +36,7 @@ export class Endpoint extends React.Component<EndpointProps, EndpointState> {
     };
   }
 
-  toggle = () => {
+  toggleEndpointInfo = () => {
     this.setState({ expanded: !this.state.expanded });
   };
 
@@ -49,7 +49,7 @@ export class Endpoint extends React.Component<EndpointProps, EndpointState> {
       <OptionsContext.Consumer>
         {options => (
           <OperationEndpointWrap>
-            <EndpointInfo onClick={this.toggle} expanded={expanded} inverted={inverted}>
+            <EndpointInfo onClick={this.toggleEndpointInfo} expanded={expanded} inverted={inverted}>
               <HttpVerb type={operation.httpVerb} compact={this.props.compact}>
                 {operation.httpVerb}
               </HttpVerb>
