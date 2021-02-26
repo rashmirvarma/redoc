@@ -6,17 +6,30 @@ import { MediaContentModel } from '../../services/models';
 import { DropdownOrLabel } from '../DropdownOrLabel/DropdownOrLabel';
 import { MediaTypesSwitch } from '../MediaTypeSwitch/MediaTypesSwitch';
 import { InvertedSimpleDropdown, MimeLabel } from './styled.elements';
+import { JsonViewer } from '../JsonViewer/JsonViewer';
 
+const defaultJSON = JSON.parse(`{\"your\" : \"customJSON\"}`);
 export interface PayloadSamplesProps {
-  content: MediaContentModel;
+  content?: MediaContentModel;
+  editable?: boolean;
+  customData?: any;
+  handleRequestBodyChange?: (string) => void;
 }
 
 @observer
 export class PayloadSamples extends React.Component<PayloadSamplesProps> {
   render() {
     const mimeContent = this.props.content;
+    const editable = this.props.editable;
+    const customData = this.props.customData;
+    const handleRequestBodyChange = this.props.handleRequestBodyChange;
+    
+    if (customData) {
+      return <JsonViewer data={customData} editable={editable} handleRequestBodyChange={handleRequestBodyChange}/>
+    }
+    
     if (mimeContent === undefined) {
-      return null;
+      return <JsonViewer data={defaultJSON} editable={editable} handleRequestBodyChange={handleRequestBodyChange}/>
     }
 
     return (
@@ -26,6 +39,8 @@ export class PayloadSamples extends React.Component<PayloadSamplesProps> {
             key="samples"
             mediaType={mediaType}
             renderDropdown={this.renderDropdown}
+            editable={editable}
+            handleRequestBodyChange={handleRequestBodyChange}
           />
         )}
       </MediaTypesSwitch>
