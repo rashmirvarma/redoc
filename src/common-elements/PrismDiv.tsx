@@ -79,7 +79,7 @@ export const PrismDiv = styled.div`
   .token.builtin,
   .token.inserted {
     // color: #a0fbaa;
-    color:grey;
+    color: grey;
     & + a,
     & + a:visited {
       // color: #4ed2ba;
@@ -90,7 +90,7 @@ export const PrismDiv = styled.div`
 
   .token.property.string {
     // color: white;
-    color: grey;
+    color: #045077;
 
   }
 
@@ -135,4 +135,6 @@ export const PrismDiv = styled.div`
   }
 
   ${extensionsHook('Prism')};
+  
+  outline: none;
 `;

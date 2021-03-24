@@ -23,7 +23,7 @@ export const EndpointInfo = styled.button<{ expanded?: boolean; inverted?: boole
   padding: 10px 30px 10px ${props => (props.inverted ? '10px' : '20px')};
   border-radius: ${props => (props.inverted ? '0' : '4px 4px 0 0')};
   background-color: ${props =>
-    props.inverted ? 'transparent' : props.theme.codeBlock.backgroundColor};
+    props.inverted ? 'transparent' : '#FFFFFF'};
   display: flex;
   white-space: nowrap;
   align-items: center;
@@ -42,6 +42,25 @@ export const EndpointInfo = styled.button<{ expanded?: boolean; inverted?: boole
   }
 `;
 
+export const TryOutButton = styled.button<{on: boolean}>`
+  outline: 0;
+  color: ${props => props.on ? `#FFFFFF` : `#045077`};
+  text-align: left;
+  cursor: pointer;
+  padding: 10px 30px 10px 10px;
+  background-color: ${props => props.on ? `#045077` : props.theme.codeBlock.backgroundColor};
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
+  transition: border-color 0.25s ease;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid #045077;
+  border-radius: 3px;
+  font-weight: bolder;
+`;
+
 export const HttpVerb = styled.span.attrs((props: { type: string; compact?: boolean }) => ({
   className: `http-verb ${props.type}`,
 }))<{ type: string; compact?: boolean }>`
@@ -53,6 +72,7 @@ export const HttpVerb = styled.span.attrs((props: { type: string; compact?: bool
   text-transform: uppercase;
   font-family: ${props => props.theme.typography.headings.fontFamily};
   margin: 0;
+  border-radius: 10px;
 `;
 
 export const ServersOverlay = styled.div<{ expanded: boolean }>`

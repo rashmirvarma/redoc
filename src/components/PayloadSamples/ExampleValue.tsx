@@ -7,11 +7,13 @@ import { SourceCodeWithCopy } from '../SourceCode/SourceCode';
 export interface ExampleValueProps {
   value: any;
   mimeType: string;
+  editable?: boolean;
+  handleRequestBodyChange?: (string) => void;
 }
 
-export function ExampleValue({ value, mimeType }: ExampleValueProps) {
+export function ExampleValue({ value, mimeType, editable, handleRequestBodyChange }: ExampleValueProps) {
   if (isJsonLike(mimeType)) {
-    return <JsonViewer data={value} />;
+    return <JsonViewer data={value} editable={editable} handleRequestBodyChange={handleRequestBodyChange}/>;
   } else {
     if (typeof value === 'object') {
       // just in case example was cached as json but used as non-json

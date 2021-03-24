@@ -16,7 +16,8 @@ export const Tabs = styled(ReactTabs)`
       padding: 5px 10px;
       display: inline-block;
 
-      background-color: ${({ theme }) => theme.codeBlock.backgroundColor};
+      // background-color: ${({ theme }) => theme.codeBlock.backgroundColor};
+      background:transparent;
       // border-bottom: 1px solid rgba(0, 0, 0, 0.5);
       cursor: pointer;
       text-align: center;
@@ -32,8 +33,7 @@ export const Tabs = styled(ReactTabs)`
 
       &.react-tabs__tab--selected {
         // color: ${props => props.theme.colors.text.primary};
-        //  background: ${({ theme }) => theme.rightPanel.textColor};
-        background:transparent;
+         background: ${({ theme }) => theme.codeBlock.backgroundColor};
         &:focus {
           outline: auto;
         }
