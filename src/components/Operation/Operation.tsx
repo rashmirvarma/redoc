@@ -154,7 +154,7 @@ export const ArrayInputs = ({schema, required}) => {
   const [length] = React.useState(minLength || 0);
   const arr: any[] = [];
   for (let i = 0; i < length; i++) {
-    arr.push(<Input/>);
+    arr.push(<Input key={`input-${i}-${new Date().getTime()}`}/>);
   }
   const [array, setArray] = React.useState<any>(arr);
 
@@ -176,7 +176,7 @@ export const ArrayInputs = ({schema, required}) => {
       case ArrayAction.add: {
         if (maxLength && array.length + 1 <= maxLength || !maxLength) {
           const newArr = [...array];
-          newArr.push(<Input/>);
+          newArr.push(<Input key={`input-pushed-${new Date().getTime()}`}/>);
           setArray(newArr);
         }
         break;
@@ -217,7 +217,7 @@ export const FormSection = ({title, items}) => {
         <ItemTitle>{title}</ItemTitle>
         <div style={{paddingTop: "20px", display: "flex", flexDirection: "column"}}>
           {items.map(
-            item => <FormItem item={item}/>
+            (item, idx) => <FormItem item={item} key={idx}/>
           )}
         </div>
         <HorizontalLineWrapper width="90%"><hr/></HorizontalLineWrapper>
