@@ -33,18 +33,19 @@ export const RunButton = styled.button<{disabled: boolean}>`
   border-radius: 20px;
   line-height: 2.5em;
   width: 7em;
-  background-color: ${props => props.disabled ? `#AEAEAE`: `#045077`};
+  background-color: ${props => props.disabled ? `#AEAEAE`: `#1E4F70`};
   color: #FFFFFF;
   font-weight: bolder;
   outline: none;
   float: right;
   cursor: pointer;
+  margin-top: 10px;
 `;
 
 
 export const ActionOnArrayButton = styled.button<{disabled: boolean}>`
   border-radius: 20px;
-  background-color: ${props => props.disabled ? `#AEAEAE`: `#045077`};
+  background-color: ${props => props.disabled ? `#AEAEAE`: `#1E4F70`};
   line-height: 1.5em;
   margin: 0 0.5em 0 0.5 em;
   width: 2em;
@@ -75,7 +76,37 @@ const InputLabel = styled.label`
   margin: 0.5em 0.5em 0.5em 0;
   background: transparent;
 `;
+const Details = styled.div`
+  color: #58585B;
+  font-weight: 100;
+  background: transparent;
+  font-size:24px;
+  border-bottom: 1px solid #DFDFDF;
+  margin: 10% 0% 10% 0%;
+  padding-bottom: 8%;
 
+`;
+const TryOutHeader = styled.div`
+  color: #58585B;
+  font-weight: bold;
+  background: transparent;
+  font-size:14px;
+ 
+  margin: 10% 0% 0% 0%;
+
+`;
+const TryOutPanel = styled.div`
+
+  background-color: #F2F2F2;
+  display:flex;
+  flex-direction:column;
+  color: #59595C;
+  font-weight: 100;
+  font-size: 14px;
+  padding: 25px 20px 25px 20px;
+ 
+
+`;
 export const Input = styled.input`
   padding: 0.5em;
   margin: 0.5em 0.5em 0.5em 0;
@@ -213,14 +244,15 @@ export const FormItem = ({item}) => {
 export const FormSection = ({title, items}) => {
   return (
     <>
-      <div style={{paddingTop: `20px`}}>
+      <div>
         <ItemTitle>{title}</ItemTitle>
-        <div style={{paddingTop: "20px", display: "flex", flexDirection: "column"}}>
+        
+        <TryOutPanel>
           {items.map(
             (item, idx) => <FormItem item={item} key={idx}/>
           )}
-        </div>
-        <HorizontalLineWrapper width="90%"><hr/></HorizontalLineWrapper>
+        </TryOutPanel>
+        <HorizontalLineWrapper width="90%"></HorizontalLineWrapper>
       </div>
     </>
   );
@@ -233,7 +265,7 @@ export const QueryParamsSection = ({params}) => {
     return null;
   }
 
-  return (<FormSection title={`Header`} items={params}/>);
+  return (<FormSection title={``} items={params}/>);
 }
 
 export const RequestBodySection = ({body}) => {
@@ -254,7 +286,7 @@ export const RequestBodySection = ({body}) => {
     return null;
   }
 
-  return (<FormSection title={`Body parameters`} items={fields}/>);
+  return (<FormSection title={``} items={fields}/>);
 }
 
 export interface OperationProps {
@@ -363,28 +395,37 @@ export class Operation extends React.Component<OperationProps, OperationState> {
                 <Description>
                   {description !== undefined && <Markdown source={description} />}
                   {externalDocs && <ExternalDocumentation externalDocs={externalDocs} />}
+                  
                 </Description>
+                
               )}
-              <Extensions extensions={operation.extensions} />
-              <SecurityRequirements securities={operation.security} />
+                            <Extensions extensions={operation.extensions} />
+                            <SecurityRequirements securities={operation.security} />
+              <H2>
+              {!options.pathInMiddlePanel && !isWebhook && <Endpoint operation={operation} />}
+                      {operation.parameters && (operation.parameters.length > 0) && <QueryParamsSection params={operation.parameters}/>}
+              </H2>
+              
               <Parameters parameters={operation.parameters} body={operation.requestBody} />
+
               <ResponsesList responses={operation.responses} />
               <CallbacksList callbacks={operation.callbacks} />
             </MiddlePanel>
             <DarkRightPanel>
+              <Details>Details</Details>
                 <Tabs defaultIndex={0} onSelect={tabIndex => this.setState({tabIndex})}>
                   <TabList>
-                    <Tab className={'tab-try-out'} key={'Try out'}>
-                          {'Try out'}
+                  <Tab className={'tab-try-out'} key={'Try out'}>
+                          {'Try It'}
                     </Tab>
-                    <Tab className={'tab-examples'} key={'Examples'}>
+                  <Tab className={'tab-examples'} key={'Examples'}>
                         {'Example'}
                     </Tab>
                   </TabList>
                   <TabPanel key={'Try out panel'}>
                     <>
-                      {!options.pathInMiddlePanel && !isWebhook && <Endpoint operation={operation} />}
-                      {operation.parameters && (operation.parameters.length > 0) && <QueryParamsSection params={operation.parameters}/>}
+                      <TryOutHeader> Header</TryOutHeader>
+                      <TryOutHeader>Body</TryOutHeader>
                       {operation.requestBody && <RequestBodySection body={operation.requestBody}/>}
                       {/* <RequestSamples
                         operation={operation}
@@ -426,7 +467,6 @@ export class Operation extends React.Component<OperationProps, OperationState> {
                 {
                   this.state.tabIndex === 0 &&
                   <>
-                    <HorizontalLineWrapper><hr/></HorizontalLineWrapper>
                     <Tabs defaultIndex={0}>
                       <RunButton disabled={this.state.pendingRequest} onClick={this.handleApiCall}>
                         {`Run`}

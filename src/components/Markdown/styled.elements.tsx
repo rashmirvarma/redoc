@@ -27,7 +27,7 @@ export const StyledMarkdownBlock = styled(
   >,
 )`
 
-  font-family: ${props => props.theme.typography.fontFamily};
+  font-family: 'Arial';
   font-weight: ${props => props.theme.typography.fontWeightRegular};
   line-height: ${props => props.theme.typography.lineHeight};
 

@@ -149,7 +149,7 @@ const Heading = styled.nav`
 
   display: flex;
   align-items: center;
-  font-family: 'Lato';
+  font-family: 'Arial';
 `;
 
 const Logo = styled.img`

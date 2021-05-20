@@ -5,7 +5,8 @@ export const jsonStyles = css`
     display: none;
     pointer-events: none;
   }
-
+  background-color: #F2F2F2;
+  padding: 25px 20px 25px 20px;
   font-family: ${(props) => props.theme.typography.code.fontFamily};
   font-size: ${(props) => props.theme.typography.code.fontSize};
 

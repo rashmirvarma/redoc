@@ -30,7 +30,7 @@ const StatusCodeSpan = styled.div<{ type: string }>`
   width: 2.5em;
   float: right;
   text-align: center;
-  background-color: ${props => props.type === 'info' ? `#000000` : (props.type === 'success' ? `#00ab50` : (props.type === 'redirect' ? `#045077` : (props.type === `error` ? `#ab1400` : `#ff4565`)))};
+  background-color: ${props => props.type === 'info' ? `#000000` : (props.type === 'success' ? `#00ab50` : (props.type === 'redirect' ? `#1E4F70` : (props.type === `error` ? `#ab1400` : `#ff4565`)))};
 `;
 
 class Json extends React.PureComponent<JsonProps> {

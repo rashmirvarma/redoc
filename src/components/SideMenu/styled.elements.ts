@@ -1,4 +1,4 @@
-import * as classnames from 'classnames';
+import classnames from 'classnames';
 import { darken } from 'polished';
 
 import { deprecatedCss, ShelfIcon } from '../../common-elements';
@@ -76,6 +76,9 @@ export const MenuItemUl = styled.ul<{ expanded: boolean }>`
   margin: 0;
   padding: 0;
   // border: 0.1em solid ##067FA2;
+  background-color: #1E4F70;
+  border-bottom: 1px solid #4E7A93 !important;
+
 
   & & {
     font-size: 0.929em;
@@ -89,6 +92,7 @@ export const MenuItemLi = styled.li<{ depth: number }>`
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0;
+  background-color:#163E58;
 
   ${props => (props.depth === 0 ? 'margin-top: 15px' : '')};
 `;
@@ -100,17 +104,21 @@ export const menuItemDepth = {
     font-size: 0.8em;
     padding-bottom: 0;
     cursor: default;
+    background-color:#1E4F70;
+
     color: ${props => props.theme.sidebar.textColor};
   `,
   1: css`
     font-size: 0.929em;
     text-transform: ${({ theme }) => theme.sidebar.level1Items.textTransform};
+    background-color: #1E4F70;
     &:hover {
-      color: '${props => props.theme.sidebar.activeTextColor}';
+      color: '#13374E';
     }
   `,
   2: css`
     color: ${props => props.theme.sidebar.textColor};
+    background-color:#1E4F70;
   `,
 };
 
@@ -138,7 +146,7 @@ export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => ({
   justify-content: space-between;
   font-family: ${props => props.theme.typography.headings.fontFamily};
   ${props => menuItemDepth[props.depth]};
-  background-color: ${props => (props.active ? menuItemActiveBg(props.depth, props) : '')};
+  background-color: #1E4F70;
 
   ${props => (props.deprecated && deprecatedCss) || ''};
 
@@ -150,7 +158,7 @@ export const MenuItemLabel = styled.label.attrs((props: MenuItemLabelType) => ({
     height: ${({ theme }) => theme.sidebar.arrow.size};
     width: ${({ theme }) => theme.sidebar.arrow.size};
     polygon {
-      fill: ${({ theme }) => theme.sidebar.arrow.color};
+      fill: #4E7A93
     }
   }
 `;
@@ -175,7 +183,7 @@ export const RedocAttribution = styled.div`
   a,
   a:visited,
   a:hover {
-    color: ${theme.sidebar.textColor} !important;
+    color: white;
     border-top: 1px solid ${darken(0.1, theme.sidebar.backgroundColor)};
     padding: ${theme.spacing.unit}px 0;
     display: block;
