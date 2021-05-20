@@ -9,7 +9,7 @@ export const PrismDiv = styled.div`
   pre[class*='language-'] {
     /* color: white;
     background: none; */
-    text-shadow: 0 -0.1em 0.2em black;
+    text-shadow: 0 -0.1em 0.2em #58585B;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -90,7 +90,7 @@ export const PrismDiv = styled.div`
 
   .token.property.string {
     // color: white;
-    color: #045077;
+    color: #1E4F70;
 
   }
 

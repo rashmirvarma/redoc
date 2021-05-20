@@ -14,22 +14,16 @@ export const ServerRelativeURL = styled.span`
   text-overflow: ellipsis;
 `;
 
-export const EndpointInfo = styled.button<{ expanded?: boolean; inverted?: boolean }>`
-  outline: 0;
-  color: inherit;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  padding: 10px 30px 10px ${props => (props.inverted ? '10px' : '20px')};
-  border-radius: ${props => (props.inverted ? '0' : '4px 4px 0 0')};
-  background-color: ${props =>
-    props.inverted ? 'transparent' : '#FFFFFF'};
-  display: flex;
-  white-space: nowrap;
-  align-items: center;
-  border: ${props => (props.inverted ? '0' : '1px solid transparent')};
-  border-bottom: ${props => (props.inverted ? '1px solid #ccc' : '0')};
-  transition: border-color 0.25s ease;
+export const EndpointInfo = styled.div<{ expanded?: boolean; inverted?: boolean }>`
+color: #307390;
+width: 100%;
+text-align: left;
+cursor: pointer;
+background-color: #FFFFFF;
+display: flex;
+white-space: nowrap;
+align-items: center;
+font-size: 14px;
 
   ${props =>
     (props.expanded && !props.inverted && `border-color: ${props.theme.colors.border.dark};`) || ''}
@@ -44,11 +38,11 @@ export const EndpointInfo = styled.button<{ expanded?: boolean; inverted?: boole
 
 export const TryOutButton = styled.button<{on: boolean}>`
   outline: 0;
-  color: ${props => props.on ? `#FFFFFF` : `#045077`};
+  color: ${props => props.on ? `#FFFFFF` : `#1E4F70`};
   text-align: left;
   cursor: pointer;
   padding: 10px 30px 10px 10px;
-  background-color: ${props => props.on ? `#045077` : props.theme.codeBlock.backgroundColor};
+  background-color: ${props => props.on ? `#1E4F70` : props.theme.codeBlock.backgroundColor};
   display: flex;
   white-space: nowrap;
   align-items: center;
@@ -56,7 +50,7 @@ export const TryOutButton = styled.button<{on: boolean}>`
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid #045077;
+  border: 2px solid #1E4F70;
   border-radius: 3px;
   font-weight: bolder;
 `;
@@ -64,7 +58,6 @@ export const TryOutButton = styled.button<{on: boolean}>`
 export const HttpVerb = styled.span.attrs((props: { type: string; compact?: boolean }) => ({
   className: `http-verb ${props.type}`,
 }))<{ type: string; compact?: boolean }>`
-  font-size: ${props => (props.compact ? '0.8em' : '0.929em')};
   line-height: ${props => (props.compact ? '18px' : '20px')};
   background-color: ${props => props.theme.colors.http[props.type] || '#999999'};
   color: #ffffff;
@@ -72,7 +65,10 @@ export const HttpVerb = styled.span.attrs((props: { type: string; compact?: bool
   text-transform: uppercase;
   font-family: ${props => props.theme.typography.headings.fontFamily};
   margin: 0;
-  border-radius: 10px;
+  border-radius: 5px;
+  width: 15%;
+text-align: center;
+font-size: 12px;
 `;
 
 export const ServersOverlay = styled.div<{ expanded: boolean }>`
@@ -88,7 +84,7 @@ export const ServersOverlay = styled.div<{ expanded: boolean }>`
   border-bottom-right-radius: 4px;
   transition: all 0.25s ease;
   visibility: hidden;
-  ${props => (props.expanded ? 'visibility: visible;' : 'transform: translateY(-50%) scaleY(0);')}
+  // ${props => (props.expanded ? 'visibility: visible;' : 'transform: translateY(-50%) scaleY(0);')}
 `;
 
 export const ServerItem = styled.div`

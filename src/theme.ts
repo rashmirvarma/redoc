@@ -116,7 +116,7 @@ const defaultTheme: ThemeInterface = {
       fontFamily: 'Arial',
       lineHeight: ({ typography }) => typography.lineHeight,
       fontWeight: ({ typography }) => typography.fontWeightRegular,
-      color: '#e53935',
+      color: '#58585B',
       backgroundColor: '#F2F2F2',
       wrap: false,
     },
@@ -127,8 +127,8 @@ const defaultTheme: ThemeInterface = {
     },
   },
   sidebar: {
-    width: '260px',
-    backgroundColor: '#054b73',
+    width: '280px',
+    backgroundColor: '#1E4F70',
     textColor: '#FFFFFF',
     activeTextColor: '#FFFFFF',
 
@@ -150,7 +150,7 @@ const defaultTheme: ThemeInterface = {
   },
   rightPanel: {
     backgroundColor: '#FFFFFF',
-    width: '40%',
+    width: '43.75%',
     textColor: '#58585B',
     border: '#FFFFFF',
 
