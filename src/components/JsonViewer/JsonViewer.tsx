@@ -22,15 +22,21 @@ const JsonViewerWrap = styled.div`
 `;
 
 const StatusCodeSpan = styled.div<{ type: string }>`
-  color: #FFFFFF;
   size: 10px;
   font-weight: bolder;
-  height: 1.5em;
-  border-radius: 10px;
-  width: 2.5em;
-  float: right;
   text-align: center;
-  background-color: ${props => props.type === 'info' ? `#000000` : (props.type === 'success' ? `#00ab50` : (props.type === 'redirect' ? `#045077` : (props.type === `error` ? `#ab1400` : `#ff4565`)))};
+  background-color: #1E4F70;
+  padding: 5px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+  width: 20%;
+
+  color: ${(props) => props.theme.colors.responses[props.type].color};
+  background-color: ${(props) => props.theme.colors.responses[props.type].backgroundColor};
+  &:focus {
+    outline: auto;
+    outline-color: ${(props) => props.theme.colors.responses[props.type].color};
+  }
 `;
 
 class Json extends React.PureComponent<JsonProps> {

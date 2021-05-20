@@ -3,7 +3,7 @@ import styled, { media } from '../styled-components';
 
 export const MiddlePanel = styled.div<{ compact?: boolean }>`
   width: calc(100% - ${props => props.theme.rightPanel.width});
-  padding: 0 ${props => props.theme.spacing.sectionHorizontal}px;
+  padding: 0 20px;
 
   ${({ compact, theme }) =>
     media.lessThan('medium', true)`
@@ -48,10 +48,12 @@ export const Section = styled.div.attrs(props => ({
 `;
 
 export const RightPanel = styled.div`
-  width: ${props => props.theme.rightPanel.width};
   color: ${({ theme }) => theme.rightPanel.textColor};
-  background-color: ${props => props.theme.rightPanel.backgroundColor};
-  padding: 0 ${props => props.theme.spacing.sectionHorizontal}px;
+  padding: 40px ${props => props.theme.spacing.sectionHorizontal}px;
+  background: white;
+  box-shadow: 0px 0px 9px 5px #DDDDDD;
+  min-height: 470px;
+width:43.75%;
 
   ${media.lessThan('medium', true)`
     width: 100%;

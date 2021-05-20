@@ -9,7 +9,7 @@ import { Markdown } from '../Markdown/Markdown';
 import { StyledMarkdownBlock } from '../Markdown/styled.elements';
 import {
   ApiHeader,
-  DownloadButton,
+  // DownloadButton,
   InfoSpan,
   InfoSpanBox,
   InfoSpanBoxWrap,
@@ -30,10 +30,10 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
   render() {
     const { store } = this.props;
     const { info, externalDocs } = store.spec;
-    const hideDownloadButton = store.options.hideDownloadButton;
+    // const hideDownloadButton = store.options.hideDownloadButton;
 
-    const downloadFilename = info.downloadFileName;
-    const downloadLink = info.downloadLink;
+    // const downloadFilename = info.downloadFileName;
+    // const downloadLink = info.downloadLink;
 
     const license =
       (info.license && (
@@ -77,7 +77,7 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
             <ApiHeader>
               {info.title} {version}
             </ApiHeader>
-            {!hideDownloadButton && (
+            {/* {!hideDownloadButton && (
               <p>
                 Download OpenAPI specification:
                 <DownloadButton
@@ -89,7 +89,7 @@ export class ApiInfo extends React.Component<ApiInfoProps> {
                   Download
                 </DownloadButton>
               </p>
-            )}
+            )} */}
             <StyledMarkdownBlock>
               {((info.license || info.contact || info.termsOfService) && (
                 <InfoSpanBoxWrap>
